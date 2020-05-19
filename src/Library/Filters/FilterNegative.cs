@@ -14,6 +14,8 @@ namespace CompAndDel.Filters
         /// </summary>
         /// <param name="image">Imagen a la cual se le va a plicar el filtro.</param>
         /// <returns>Imagen con el filtro aplicado</returns>
+        
+        public Boolean result { get; set; }
         public IPicture Filter(IPicture image)
         {
             Debug.Assert(image != null);

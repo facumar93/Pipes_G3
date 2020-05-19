@@ -6,6 +6,7 @@ namespace CompAndDel.Filters
 {
     public class FilterBlurConvolution : IFilter
     {
+        public Boolean result { get; set; }
         protected int[,] matrizParametros;
         protected int complemento, divisor;
         /// <summary>
