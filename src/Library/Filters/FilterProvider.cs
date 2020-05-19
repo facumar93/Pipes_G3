@@ -1,8 +1,9 @@
+using System;
 namespace CompAndDel.Filters
 {
     public class FilterProvider : IFilter
     {
-        private int contador = 1;
+        
         public IPicture Filter (IPicture image)
         {
             PictureProvider p2 = new PictureProvider();
@@ -10,5 +11,7 @@ namespace CompAndDel.Filters
             contador = contador + 1;
             return image;
         }
+        private int contador = 1;
+        public Boolean result { get; set; }
     }
 }

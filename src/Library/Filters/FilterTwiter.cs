@@ -1,3 +1,4 @@
+using System;
 namespace CompAndDel.Filters
 {
    public class FilterTwitter : IFilter
@@ -12,6 +13,7 @@ namespace CompAndDel.Filters
             
         }
 
+        public Boolean result { get; set; }
         private int contador = 1;
         public string ConsumerKey = "g7rkPB5uI2xOqELAhlNrorSU4";
         public string ConsumerKeySecret = "8hOTyS71GrTH9Ool3rXykAJRY5AmgSPiy78b1wYUPcvfIzXeEc";
