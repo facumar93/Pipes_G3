@@ -36,7 +36,7 @@ namespace CompAndDel
             IPipe pipeSerial1_ej2 = new PipeSerial(filterGreyscale,pipeProvider1_ej2);
             
             pipeSerial1_ej2.Send(pic);
-            
+          
 
             //EJERCICIO 3
                 
@@ -73,14 +73,6 @@ namespace CompAndDel
             IPipe pipeSerial1_ejB = new PipeSerial(filterBlurConvolution,pipeProvider1_ejB);
 
             pipeSerial1_ejB.Send(pic);
-
-            
-
-           
-
-
-
-            
         }
     }
 }
