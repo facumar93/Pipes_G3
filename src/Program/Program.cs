@@ -8,20 +8,43 @@ namespace CompAndDel
     {
         static void Main(string[] args)
         {
-            //Se instancia PictureProvide que abrirá una imagen con un Método.
             PictureProvider p = new PictureProvider();
-            //GetPicture retornará una instancia de Picture.
-            IPicture pic = p.GetPicture("C:/Users/estudiante.fit/Pipes_G3/matrix.png");
+            //IPicture pic = p.GetPicture("C:/Users/estudiante.fit/Pipes_G3/matrix.png");
+            IPicture pic = p.GetPicture("../imageTest.JPG");
 
-            //Necesario instanciar los filtros, porque los "Pipes" se instancian del ultimo al primero.
             IFilter filterGreyscale= new FilterGreyscale();
             IFilter filterNegative = new FilterNegative();
+            IFilter filterProvider = new FilterProvider();
+            IFilter filterTwiter = new FilterTwitter();
             
-            //
-            IPipe ipip2 = new PipeSerial(filterNegative, new PipeNull());
-            IPipe ipip1 = new PipeSerial(filterGreyscale, ipip2);
+            /* 
+            //EJERCICIO 2
+            
+            IPipe pipeNull = new PipeNull();
+            IPipe pipeProvider2 = new PipeSerial(filterProvider, pipeNull);
+            IPipe pipeSerial2 = new PipeSerial(filterNegative,pipeProvider2);
+            IPipe pipeProvider1 = new PipeSerial(filterProvider,pipeSerial2);
+            IPipe pipeSerial1 = new PipeSerial(filterGreyscale,pipeProvider1);
+            
+            pipeSerial1.Send(pic);
+            */
 
-            ipip2.Send(pic);
+            //EJERCICIO 3
+
+            IPipe pipeNull = new PipeNull();
+            IPipe pipeTwiter2 = new PipeSerial(filterTwiter, pipeNull);
+            IPipe pipeProvider2 = new PipeSerial(filterProvider, pipeTwiter2);
+            IPipe pipeSerial2 = new PipeSerial(filterNegative,pipeProvider2);
+            IPipe pipeTwiter1 = new PipeSerial(filterTwiter,pipeSerial2);
+            IPipe pipeProvider1 = new PipeSerial(filterProvider, pipeTwiter1);
+            IPipe pipeSerial1 = new PipeSerial(filterGreyscale,pipeProvider1);
+
+            pipeSerial1.Send(pic);
+            
+
+           
+
+
 
             
         }
